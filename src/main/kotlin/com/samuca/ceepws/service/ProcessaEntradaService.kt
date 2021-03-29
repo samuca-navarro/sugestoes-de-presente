@@ -21,27 +21,14 @@ class ProcessaEntradaService {
 
         val cadastro: Optional<VariaveisCadastro> = cadastroRepository.findById(id)
 
-        if(cadastro.get().relacao == "colega"){
-            return sugestaoRepository.findAll().filter{ it.pontuacao <= "6" }.toList()
-        }
 
-        if(cadastro.get().relacao == "amigo(a)" && cadastro.get().tipoDataComemorativa == ""){
-            return sugestaoRepository.findAll().filter{ it.pontuacao >= "7" && it.pontuacao <= "12"}.toList()
-        }
+            return sugestaoRepository.findAll().filter{ it.tipoPresenteado == cadastro.get().tipoPresenteado &&
+                        it.relacao == cadastro.get().relacao &&
+                        it.tipoDataComemorativa == cadastro.get().tipoDataComemorativa &&
+                        it.personalidade1 == cadastro.get().personalidade1 &&
+                        it.personalidade2 == cadastro.get().personalidade2
+            }.toList()
 
-        if(cadastro.get().relacao == "amigo(a)" && cadastro.get().tipoDataComemorativa !== ""){
-            return sugestaoRepository.findAll().filter{ it.pontuacao >= "13" && it.pontuacao <= "18"}.toList()
-        }
-
-        if(cadastro.get().relacao == "par romântico" && cadastro.get().tipoDataComemorativa == ""){
-            return sugestaoRepository.findAll().filter{ it.pontuacao >= "19" && it.pontuacao <= "24"}.toList()
-        }
-
-        if(cadastro.get().relacao == "par romântico" && cadastro.get().tipoDataComemorativa !== ""){
-            return sugestaoRepository.findAll().filter{ it.pontuacao >= "25" && it.pontuacao <= "30"}.toList()
-        }
-
-        return emptyList()
     }
 
 }

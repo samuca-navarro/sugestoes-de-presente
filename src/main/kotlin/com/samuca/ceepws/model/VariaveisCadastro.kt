@@ -12,21 +12,9 @@ data class VariaveisCadastro(@Id
            val id: Long = 0L,
                              val nomePresenteador: String = "",
                              val nomePresenteada: String = "",
-                             val idade: String = "",
-                             val sexo: String = "",
-                             val relacao: String = "",
-                             val cidade: String = "",
-                             val estiloMusicalPreferido: String = "",
-                             val religiao: String = "",
-                             val tipoPasseioFavorito: String = "",
-                             val tipoFilmePreferido: String = "",
-                             val tipoDataComemorativa: String = "",
-                             val pet: String = "",
-                             val comidaFavorita: String = "",
-                             val areaTrabalho: String = "",
-                             val areaEstudo: String = "",
-                             val tipoPersonalidadeA: String = "",
-                             val tipoPersonalidadeB: String = "",
-                             val tipoPersonalidadeC : String = "",
-                             val tipoPersonalidadeD: String = ""
+                             val tipoPresenteado: String = "", //adulto masculino/feminino, criança masculino/feminino, neutro
+                             val relacao: String = "",//par amoroso, familiar, amigo
+                             val tipoDataComemorativa: String = "", //aniversário, aniversário de namoro, natal
+                             val personalidade1: String = "",//nerd, baladeiro, culto, comum
+                             val personalidade2: String = ""//introvertido, extrovertido
 )
